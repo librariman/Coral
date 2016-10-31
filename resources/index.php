@@ -46,7 +46,12 @@ include 'templates/header.php';
 	<form method="get" action="ajax_htmldata.php?action=getSearchResources" id="resourceSearchForm">
 		<?php
 		foreach(array('orderBy','page','recordsPerPage','startWith') as $hidden) {
-			echo Html::hidden_search_field_tag($hidden, $search[$hidden]);
+			if (isset($search[$hidden])) {
+				echo Html::hidden_search_field_tag($hidden, $search[$hidden]);
+			}
+			else {
+				echo Html::hidden_search_field_tag($hidden, '');
+			}
 		}
 		?>
 		
