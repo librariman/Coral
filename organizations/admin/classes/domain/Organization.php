@@ -470,7 +470,7 @@ class Organization extends DatabaseObject {
 		$result = $this->db->processQuery($query, 'assoc');
 		//this is because processQuery has a bad habit of mixed return values
 		//TODO: change this, maybe, someday
-		if ($result['resourceID']) {
+		if (isset($result['resourceID'])) {
 			$result = array($result);
 		}
 
