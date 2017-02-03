@@ -1290,7 +1290,7 @@ class Resource extends DatabaseObject {
 
 			$match = array();
 			preg_match("/[A-Z]+(?= ON )/i", $join, $match);
-			$table_name = $match[0];
+			if (isset($match[0]))$table_name = $match[0];
 			if (in_array($table_name, $referenced_tables)) {
 				$additional_joins[] = $join;
 			}
